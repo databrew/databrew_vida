@@ -53,5 +53,4 @@ What follows is a list of all files currently in our possession, broken down by 
 
 We would like to end up with as simple a structure as possible, eliminating from our inventory all irrelevant files, replacing “sample” files with true raw data, and standardizing the names of each dataset, location, period and format. 
 
-<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRSTCyb2ivtCr1KCjK7XVsyMSKRp56-Fh7CsN09LQrL93DiG4RYO1lVZ3gY6Ooe6700PhroKeq1M_IW/pubhtml?widget=true&amp;headers=false"></iframe>
-
+[Inventory spreadsheet here](https://docs.google.com/spreadsheets/d/1Bov7kggT7ByKnundCIfDVDWnOsU0RcYL901atx6lUjU/edit#gid=0)
