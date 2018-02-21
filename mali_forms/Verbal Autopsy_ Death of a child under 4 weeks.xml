@@ -2362,14 +2362,14 @@
       </itext>
       <bind nodeset="/data/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
       <bind nodeset="/data/Date_interview" type="date" required="true()"/>
-      <bind nodeset="/data/Site" type="string" required="true()" constraint="(regex(., &quot;^.{,1}$&quot;))" jr:constraintMsg="Response length must be between  and 1"/>
-      <bind nodeset="/data/ID_sujet" type="string" required="true()" constraint="(regex(., &quot;^.{,7}$&quot;))" jr:constraintMsg="Response length must be between  and 7"/>
+      <bind nodeset="/data/Site" type="string" required="true()"/>
+      <bind nodeset="/data/ID_sujet" type="string" required="true()"/>
       <bind nodeset="/data/Debut" type="time" required="true()"/>
       <bind nodeset="/data/Section_1.1/Date_naissance" type="date"/>
       <bind nodeset="/data/Section_1.1/Sexe" type="select1"/>
       <bind nodeset="/data/Section_1.1/Date_deces" type="date"/>
       <bind nodeset="/data/Section_1.1/Age_deces" type="int"/>
-      <bind nodeset="/data/Section_1.1/Numero_ID" type="string" constraint="(regex(., &quot;^.{,21}$&quot;))" jr:constraintMsg="Response length must be between  and 21"/>
+      <bind nodeset="/data/Section_1.1/Numero_ID" type="string"/>
       <bind nodeset="/data/Section_1.2/Resultat" type="select1"/>
       <bind nodeset="/data/Section_1.2/Autre_resultat" type="string" relevant="(selected(/data/Section_1.2/Resultat, 'autres'))"/>
       <bind nodeset="/data/Section_1.2/Resultat_complete" type="select1"/>
@@ -2379,7 +2379,7 @@
       <bind nodeset="/data/Section_1.2/Resultat_comp_oui/Section_3/Ou_decede" type="select1" relevant="(selected(/data/Section_1.2/Resultat_complete, 'oui'))"/>
       <bind nodeset="/data/Section_1.2/Resultat_comp_oui/Section_3/Autres_decede" type="string" relevant="(selected(/data/Section_1.2/Resultat_complete, 'oui')) and (selected(/data/Section_1.2/Resultat_comp_oui/Section_3/Ou_decede, 'autres'))"/>
       <bind nodeset="/data/Section_1.2/Resultat_comp_oui/Section_3/Decede_centre" type="select1" relevant="(selected(/data/Section_1.2/Resultat_complete, 'oui'))"/>
-      <bind nodeset="/data/Section_1.2/Resultat_comp_oui/Section_3/Code_centre" type="string" relevant="(selected(/data/Section_1.2/Resultat_complete, 'oui')) and (selected(/data/Section_1.2/Resultat_comp_oui/Section_3/Decede_centre, 'oui'))" constraint="(regex(., &quot;^.{,3}$&quot;))" jr:constraintMsg="Response length must be between  and 3"/>
+      <bind nodeset="/data/Section_1.2/Resultat_comp_oui/Section_3/Code_centre" type="string" relevant="(selected(/data/Section_1.2/Resultat_complete, 'oui')) and (selected(/data/Section_1.2/Resultat_comp_oui/Section_3/Decede_centre, 'oui'))"/>
       <bind nodeset="/data/Section_1.2/Resultat_comp_oui/Section_4/Maladie" type="string" relevant="(selected(/data/Section_1.2/Resultat_complete, 'oui'))"/>
       <bind nodeset="/data/Section_1.2/Resultat_comp_oui/Section_4/Cause1_mort" type="string" relevant="(selected(/data/Section_1.2/Resultat_complete, 'oui'))"/>
       <bind nodeset="/data/Section_1.2/Resultat_comp_oui/Section_4/Cause2_mort" type="string" relevant="(selected(/data/Section_1.2/Resultat_complete, 'oui'))"/>
@@ -2576,7 +2576,7 @@
       <bind nodeset="/data/Section_1.2/Resultat_comp_oui/Autres_comment" type="string" relevant="(selected(/data/Section_1.2/Resultat_complete, 'oui'))"/>
       <bind nodeset="/data/Section_1.2/Resultat_comp_oui/Observations_sup" type="string" relevant="(selected(/data/Section_1.2/Resultat_complete, 'oui'))"/>
       <bind nodeset="/data/Nom_int" type="string" required="true()"/>
-      <bind nodeset="/data/Code_int" type="string" required="true()" constraint="(regex(., &quot;^.{,3}$&quot;))" jr:constraintMsg="Response length must be between  and 3"/>
+      <bind nodeset="/data/Code_int" type="string" required="true()"/>
       <bind nodeset="/data/Nom_sup" type="string" required="true()"/>
       <bind nodeset="/data/Code_sup" type="string" required="true()"/>
       <bind nodeset="/data/Date" type="date" required="true()"/>
