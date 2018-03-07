@@ -3,7 +3,7 @@
     <h:title>Verbal Autopsy: Death of a child under 4 weeks</h:title>
     <model>
       <instance>
-        <data id="build_Verbal-Autopsy-Death-of-a-child-under-4-weeks_1519165214">
+        <data id="build_Verbal-Autopsy-Death-of-a-child-under-4-weeks_1520435932">
           <meta>
             <instanceID/>
           </meta>
@@ -13,6 +13,7 @@
           <Debut/>
           <Section_1.1>
             <Date_naissance/>
+            <untitled6/>
             <Sexe/>
             <Date_deces/>
             <Age_deces/>
@@ -230,7 +231,6 @@
                     <Autre_lieu/>
                     <Autre_lieu1/>
                   </Lieux_traitement1>
-                  <Maison_guerisseur/>
                   <Centre_saisi/>
                   <Jours_centre_saisi/>
                   <Contacts_centre/>
@@ -2148,23 +2148,20 @@
           <text id="/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_oui/Lieux_traitement1/Autre_lieu1:label">
             <value>Tout autre lieu ou centre, spécifier</value>
           </text>
-          <text id="/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_oui/Maison_guerisseur:label">
-            <value>L’enfant a-t-il reçu le traitement dans la maison ou un guérisseur traditionnel?</value>
-          </text>
-          <text id="/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_oui/Maison_guerisseur:option0">
-            <value>Oui</value>
-          </text>
-          <text id="/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_oui/Maison_guerisseur:option1">
-            <value>Non</value>
-          </text>
           <text id="/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_oui/Centre_saisi:label">
             <value>Combien de jours après le début de la maladie le centre en question a été saisi?</value>
+          </text>
+          <text id="/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_oui/Centre_saisi:hint">
+            <value>Si l'enfant n'a reçu pas le traitement dans la maison/guérriseur traditionnel</value>
           </text>
           <text id="/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_oui/Centre_saisi:option0">
             <value>Jours</value>
           </text>
           <text id="/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_oui/Centre_saisi:option1">
             <value>Ne sait pas</value>
+          </text>
+          <text id="/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_oui/Centre_saisi:option2">
+            <value>N/A</value>
           </text>
           <text id="/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_oui/Jours_centre_saisi:label">
             <value>Combien de jours après le début de la maladie le centre en question a été saisi?</value>
@@ -2361,13 +2358,14 @@
         </translation>
       </itext>
       <bind nodeset="/data/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
-      <bind nodeset="/data/Date_interview" type="date" required="true()"/>
+      <bind nodeset="/data/Date_interview" type="string"/>
       <bind nodeset="/data/Site" type="string" required="true()"/>
       <bind nodeset="/data/ID_sujet" type="string" required="true()"/>
       <bind nodeset="/data/Debut" type="time" required="true()"/>
-      <bind nodeset="/data/Section_1.1/Date_naissance" type="date"/>
+      <bind nodeset="/data/Section_1.1/Date_naissance" type="string"/>
+      <bind nodeset="/data/Section_1.1/untitled6" type="string"/>
       <bind nodeset="/data/Section_1.1/Sexe" type="select1"/>
-      <bind nodeset="/data/Section_1.1/Date_deces" type="date"/>
+      <bind nodeset="/data/Section_1.1/Date_deces" type="string"/>
       <bind nodeset="/data/Section_1.1/Age_deces" type="int"/>
       <bind nodeset="/data/Section_1.1/Numero_ID" type="string"/>
       <bind nodeset="/data/Section_1.2/Resultat" type="select1"/>
@@ -2391,7 +2389,7 @@
       <bind nodeset="/data/Section_1.2/Resultat_comp_oui/Section_5/Semaines_avant" type="select1" relevant="(selected(/data/Section_1.2/Resultat_complete, 'oui')) and (selected(/data/Section_1.2/Resultat_comp_oui/Section_5/Grossesse_courte, 'oui'))"/>
       <bind nodeset="/data/Section_1.2/Resultat_comp_oui/Section_5/Semaines_avant1" type="int" relevant="(selected(/data/Section_1.2/Resultat_complete, 'oui')) and (selected(/data/Section_1.2/Resultat_comp_oui/Section_5/Semaines_avant, 'semaines'))"/>
       <bind nodeset="/data/Section_1.2/Resultat_comp_oui/Section_5/Mal_connues" type="select1" relevant="(selected(/data/Section_1.2/Resultat_complete, 'oui'))"/>
-      <bind nodeset="/data/Section_1.2/Resultat_comp_oui/Section_5/Mal_connues1/Mal_hyper" type="select" relevant="(selected(/data/Section_1.2/Resultat_complete, 'oui')) and (selected(/data/Section_1.2/Resultat_comp_oui/Section_5/Mal_connues, 'Suivante'))"/>
+      <bind nodeset="/data/Section_1.2/Resultat_comp_oui/Section_5/Mal_connues1/Mal_hyper" type="select1" relevant="(selected(/data/Section_1.2/Resultat_complete, 'oui')) and (selected(/data/Section_1.2/Resultat_comp_oui/Section_5/Mal_connues, 'Suivante'))"/>
       <bind nodeset="/data/Section_1.2/Resultat_comp_oui/Section_5/Mal_connues1/Mal_coeur" type="select1" relevant="(selected(/data/Section_1.2/Resultat_complete, 'oui')) and (selected(/data/Section_1.2/Resultat_comp_oui/Section_5/Mal_connues, 'Suivante'))"/>
       <bind nodeset="/data/Section_1.2/Resultat_comp_oui/Section_5/Mal_connues1/Mal_diabete" type="select1" relevant="(selected(/data/Section_1.2/Resultat_complete, 'oui')) and (selected(/data/Section_1.2/Resultat_comp_oui/Section_5/Mal_connues, 'Suivante'))"/>
       <bind nodeset="/data/Section_1.2/Resultat_comp_oui/Section_5/Mal_connues1/Mal_epilepsie" type="select1" relevant="(selected(/data/Section_1.2/Resultat_complete, 'oui')) and (selected(/data/Section_1.2/Resultat_comp_oui/Section_5/Mal_connues, 'Suivante'))"/>
@@ -2434,7 +2432,7 @@
       <bind nodeset="/data/Section_1.2/Resultat_comp_oui/Section_7/Dimension" type="select1" relevant="(selected(/data/Section_1.2/Resultat_complete, 'oui'))"/>
       <bind nodeset="/data/Section_1.2/Resultat_comp_oui/Section_7/Premature" type="select1" relevant="(selected(/data/Section_1.2/Resultat_complete, 'oui'))"/>
       <bind nodeset="/data/Section_1.2/Resultat_comp_oui/Section_7/Mois_grossesse" type="select1" relevant="(selected(/data/Section_1.2/Resultat_complete, 'oui'))"/>
-      <bind nodeset="/data/Section_1.2/Resultat_comp_oui/Section_7/Mois_grossesse1" type="decimal" relevant="(selected(/data/Section_1.2/Resultat_complete, 'oui')) and (selected(/data/Section_1.2/Resultat_comp_oui/Section_7/Mois_grossesse, 'semaine'))"/>
+      <bind nodeset="/data/Section_1.2/Resultat_comp_oui/Section_7/Mois_grossesse1" type="decimal" relevant="(selected(/data/Section_1.2/Resultat_complete, 'oui')) and (selected(/data/Section_1.2/Resultat_comp_oui/Section_7/Mois_grossesse, 'mois'))"/>
       <bind nodeset="/data/Section_1.2/Resultat_comp_oui/Section_7/Poids" type="select1" relevant="(selected(/data/Section_1.2/Resultat_complete, 'oui'))"/>
       <bind nodeset="/data/Section_1.2/Resultat_comp_oui/Section_7/Poids1" type="decimal" relevant="(selected(/data/Section_1.2/Resultat_complete, 'oui')) and (selected(/data/Section_1.2/Resultat_comp_oui/Section_7/Poids, 'kg'))"/>
       <bind nodeset="/data/Section_1.2/Resultat_comp_oui/Section_7/Applique_cordon" type="select1" relevant="(selected(/data/Section_1.2/Resultat_complete, 'oui'))"/>
@@ -2533,7 +2531,7 @@
       <bind nodeset="/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_bebe" type="select1" relevant="(selected(/data/Section_1.2/Resultat_complete, 'oui'))"/>
       <bind nodeset="/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_oui/Liste_traitements" type="string" relevant="(selected(/data/Section_1.2/Resultat_complete, 'oui')) and (selected(/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_bebe, 'oui'))"/>
       <bind nodeset="/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_oui/Lieux_traitement" type="select1" relevant="(selected(/data/Section_1.2/Resultat_complete, 'oui')) and (selected(/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_bebe, 'oui'))"/>
-      <bind nodeset="/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_oui/Lieux_traitement1/Maison" type="select" relevant="(selected(/data/Section_1.2/Resultat_complete, 'oui')) and (selected(/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_bebe, 'oui')) and (selected(/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_oui/Lieux_traitement, 'suivante'))"/>
+      <bind nodeset="/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_oui/Lieux_traitement1/Maison" type="select1" relevant="(selected(/data/Section_1.2/Resultat_complete, 'oui')) and (selected(/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_bebe, 'oui')) and (selected(/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_oui/Lieux_traitement, 'suivante'))"/>
       <bind nodeset="/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_oui/Lieux_traitement1/Guerisseur" type="select1" relevant="(selected(/data/Section_1.2/Resultat_complete, 'oui')) and (selected(/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_bebe, 'oui')) and (selected(/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_oui/Lieux_traitement, 'suivante'))"/>
       <bind nodeset="/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_oui/Lieux_traitement1/Clinique_gouv" type="select1" relevant="(selected(/data/Section_1.2/Resultat_complete, 'oui')) and (selected(/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_bebe, 'oui')) and (selected(/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_oui/Lieux_traitement, 'suivante'))"/>
       <bind nodeset="/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_oui/Lieux_traitement1/Hopital_gouv" type="select1" relevant="(selected(/data/Section_1.2/Resultat_complete, 'oui')) and (selected(/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_bebe, 'oui')) and (selected(/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_oui/Lieux_traitement, 'suivante'))"/>
@@ -2542,8 +2540,7 @@
       <bind nodeset="/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_oui/Lieux_traitement1/Pharmacie" type="select1" relevant="(selected(/data/Section_1.2/Resultat_complete, 'oui')) and (selected(/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_bebe, 'oui')) and (selected(/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_oui/Lieux_traitement, 'suivante'))"/>
       <bind nodeset="/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_oui/Lieux_traitement1/Autre_lieu" type="select1" relevant="(selected(/data/Section_1.2/Resultat_complete, 'oui')) and (selected(/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_bebe, 'oui')) and (selected(/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_oui/Lieux_traitement, 'suivante'))"/>
       <bind nodeset="/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_oui/Lieux_traitement1/Autre_lieu1" type="string" relevant="(selected(/data/Section_1.2/Resultat_complete, 'oui')) and (selected(/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_bebe, 'oui')) and (selected(/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_oui/Lieux_traitement, 'suivante')) and (selected(/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_oui/Lieux_traitement1/Autre_lieu, 'oui'))"/>
-      <bind nodeset="/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_oui/Maison_guerisseur" type="select1" relevant="(selected(/data/Section_1.2/Resultat_complete, 'oui')) and (selected(/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_bebe, 'oui'))"/>
-      <bind nodeset="/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_oui/Centre_saisi" type="select1" relevant="(selected(/data/Section_1.2/Resultat_complete, 'oui')) and (selected(/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_bebe, 'oui')) and (selected(/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_oui/Maison_guerisseur, 'non'))"/>
+      <bind nodeset="/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_oui/Centre_saisi" type="select1" relevant="(selected(/data/Section_1.2/Resultat_complete, 'oui')) and (selected(/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_bebe, 'oui'))"/>
       <bind nodeset="/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_oui/Jours_centre_saisi" type="decimal" relevant="(selected(/data/Section_1.2/Resultat_complete, 'oui')) and (selected(/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_bebe, 'oui')) and (selected(/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_oui/Centre_saisi, 'jours'))"/>
       <bind nodeset="/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_oui/Contacts_centre" type="select1" relevant="(selected(/data/Section_1.2/Resultat_complete, 'oui')) and (selected(/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_bebe, 'oui'))"/>
       <bind nodeset="/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_oui/Contacts_centre1" type="int" relevant="(selected(/data/Section_1.2/Resultat_complete, 'oui')) and (selected(/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_bebe, 'oui')) and (selected(/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_oui/Contacts_centre, 'Contacts'))"/>
@@ -2555,8 +2552,8 @@
       <bind nodeset="/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_oui/Agent_cause" type="string" relevant="(selected(/data/Section_1.2/Resultat_complete, 'oui')) and (selected(/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_bebe, 'oui')) and (selected(/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_oui/Travailleurs_cause, 'oui'))"/>
       <bind nodeset="/data/Section_1.2/Resultat_comp_oui/Section_12/Certificat" type="select1" relevant="(selected(/data/Section_1.2/Resultat_complete, 'oui'))"/>
       <bind nodeset="/data/Section_1.2/Resultat_comp_oui/Section_12/Certificat_oui/Voir_certificat" type="select1" relevant="(selected(/data/Section_1.2/Resultat_complete, 'oui')) and (selected(/data/Section_1.2/Resultat_comp_oui/Section_12/Certificat, 'oui'))"/>
-      <bind nodeset="/data/Section_1.2/Resultat_comp_oui/Section_12/Certificat_oui/Voir_cert_oui/Date_certificat" type="date" relevant="(selected(/data/Section_1.2/Resultat_complete, 'oui')) and (selected(/data/Section_1.2/Resultat_comp_oui/Section_12/Certificat, 'oui')) and (selected(/data/Section_1.2/Resultat_comp_oui/Section_12/Certificat_oui/Voir_certificat, 'oui'))"/>
-      <bind nodeset="/data/Section_1.2/Resultat_comp_oui/Section_12/Certificat_oui/Voir_cert_oui/Date_obtention" type="date" relevant="(selected(/data/Section_1.2/Resultat_complete, 'oui')) and (selected(/data/Section_1.2/Resultat_comp_oui/Section_12/Certificat, 'oui')) and (selected(/data/Section_1.2/Resultat_comp_oui/Section_12/Certificat_oui/Voir_certificat, 'oui'))"/>
+      <bind nodeset="/data/Section_1.2/Resultat_comp_oui/Section_12/Certificat_oui/Voir_cert_oui/Date_certificat" type="string" relevant="(selected(/data/Section_1.2/Resultat_complete, 'oui')) and (selected(/data/Section_1.2/Resultat_comp_oui/Section_12/Certificat, 'oui')) and (selected(/data/Section_1.2/Resultat_comp_oui/Section_12/Certificat_oui/Voir_certificat, 'oui'))"/>
+      <bind nodeset="/data/Section_1.2/Resultat_comp_oui/Section_12/Certificat_oui/Voir_cert_oui/Date_obtention" type="string" relevant="(selected(/data/Section_1.2/Resultat_complete, 'oui')) and (selected(/data/Section_1.2/Resultat_comp_oui/Section_12/Certificat, 'oui')) and (selected(/data/Section_1.2/Resultat_comp_oui/Section_12/Certificat_oui/Voir_certificat, 'oui'))"/>
       <bind nodeset="/data/Section_1.2/Resultat_comp_oui/Section_12/Certificat_oui/Voir_cert_oui/Certificat_cause1" type="string" relevant="(selected(/data/Section_1.2/Resultat_complete, 'oui')) and (selected(/data/Section_1.2/Resultat_comp_oui/Section_12/Certificat, 'oui')) and (selected(/data/Section_1.2/Resultat_comp_oui/Section_12/Certificat_oui/Voir_certificat, 'oui'))"/>
       <bind nodeset="/data/Section_1.2/Resultat_comp_oui/Section_12/Certificat_oui/Voir_cert_oui/Certificat_cause2" type="string" relevant="(selected(/data/Section_1.2/Resultat_complete, 'oui')) and (selected(/data/Section_1.2/Resultat_comp_oui/Section_12/Certificat, 'oui')) and (selected(/data/Section_1.2/Resultat_comp_oui/Section_12/Certificat_oui/Voir_certificat, 'oui'))"/>
       <bind nodeset="/data/Section_1.2/Resultat_comp_oui/Section_12/Certificat_oui/Voir_cert_oui/Certificat_cause3" type="string" relevant="(selected(/data/Section_1.2/Resultat_complete, 'oui')) and (selected(/data/Section_1.2/Resultat_comp_oui/Section_12/Certificat, 'oui')) and (selected(/data/Section_1.2/Resultat_comp_oui/Section_12/Certificat_oui/Voir_certificat, 'oui'))"/>
@@ -2579,7 +2576,7 @@
       <bind nodeset="/data/Code_int" type="string" required="true()"/>
       <bind nodeset="/data/Nom_sup" type="string" required="true()"/>
       <bind nodeset="/data/Code_sup" type="string" required="true()"/>
-      <bind nodeset="/data/Date" type="date" required="true()"/>
+      <bind nodeset="/data/Date" type="string" required="true()"/>
     </model>
   </h:head>
   <h:body>
@@ -2601,6 +2598,8 @@
       <input ref="/data/Section_1.1/Date_naissance">
         <label ref="jr:itext('/data/Section_1.1/Date_naissance:label')"/>
         <hint ref="jr:itext('/data/Section_1.1/Date_naissance:hint')"/>
+      </input>
+      <input ref="/data/Section_1.1/untitled6">
       </input>
       <select1 ref="/data/Section_1.1/Sexe">
         <label ref="jr:itext('/data/Section_1.1/Sexe:label')"/>
@@ -2858,7 +2857,7 @@
           </select1>
           <group>
             <label ref="jr:itext('/data/Section_1.2/Resultat_comp_oui/Section_5/Mal_connues1:label')"/>
-            <select ref="/data/Section_1.2/Resultat_comp_oui/Section_5/Mal_connues1/Mal_hyper">
+            <select1 ref="/data/Section_1.2/Resultat_comp_oui/Section_5/Mal_connues1/Mal_hyper">
               <label ref="jr:itext('/data/Section_1.2/Resultat_comp_oui/Section_5/Mal_connues1/Mal_hyper:label')"/>
               <item>
                 <label ref="jr:itext('/data/Section_1.2/Resultat_comp_oui/Section_5/Mal_connues1/Mal_hyper:option0')"/>
@@ -2872,7 +2871,7 @@
                 <label ref="jr:itext('/data/Section_1.2/Resultat_comp_oui/Section_5/Mal_connues1/Mal_hyper:option2')"/>
                 <value>ne_sait_pas</value>
               </item>
-            </select>
+            </select1>
             <select1 ref="/data/Section_1.2/Resultat_comp_oui/Section_5/Mal_connues1/Mal_coeur">
               <label ref="jr:itext('/data/Section_1.2/Resultat_comp_oui/Section_5/Mal_connues1/Mal_coeur:label')"/>
               <item>
@@ -4686,7 +4685,7 @@
             </select1>
             <group>
               <label ref="jr:itext('/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_oui/Lieux_traitement1:label')"/>
-              <select ref="/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_oui/Lieux_traitement1/Maison">
+              <select1 ref="/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_oui/Lieux_traitement1/Maison">
                 <label ref="jr:itext('/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_oui/Lieux_traitement1/Maison:label')"/>
                 <item>
                   <label ref="jr:itext('/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_oui/Lieux_traitement1/Maison:option0')"/>
@@ -4700,7 +4699,7 @@
                   <label ref="jr:itext('/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_oui/Lieux_traitement1/Maison:option2')"/>
                   <value>ne_sait_pas</value>
                 </item>
-              </select>
+              </select1>
               <select1 ref="/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_oui/Lieux_traitement1/Guerisseur">
                 <label ref="jr:itext('/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_oui/Lieux_traitement1/Guerisseur:label')"/>
                 <item>
@@ -4810,19 +4809,9 @@
                 <label ref="jr:itext('/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_oui/Lieux_traitement1/Autre_lieu1:label')"/>
               </input>
             </group>
-            <select1 ref="/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_oui/Maison_guerisseur">
-              <label ref="jr:itext('/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_oui/Maison_guerisseur:label')"/>
-              <item>
-                <label ref="jr:itext('/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_oui/Maison_guerisseur:option0')"/>
-                <value>oui</value>
-              </item>
-              <item>
-                <label ref="jr:itext('/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_oui/Maison_guerisseur:option1')"/>
-                <value>non</value>
-              </item>
-            </select1>
             <select1 ref="/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_oui/Centre_saisi">
               <label ref="jr:itext('/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_oui/Centre_saisi:label')"/>
+              <hint ref="jr:itext('/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_oui/Centre_saisi:hint')"/>
               <item>
                 <label ref="jr:itext('/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_oui/Centre_saisi:option0')"/>
                 <value>jours</value>
@@ -4830,6 +4819,10 @@
               <item>
                 <label ref="jr:itext('/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_oui/Centre_saisi:option1')"/>
                 <value>ne_sait_pas</value>
+              </item>
+              <item>
+                <label ref="jr:itext('/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_oui/Centre_saisi:option2')"/>
+                <value>na</value>
               </item>
             </select1>
             <input ref="/data/Section_1.2/Resultat_comp_oui/Section_11/Traitement_oui/Jours_centre_saisi">

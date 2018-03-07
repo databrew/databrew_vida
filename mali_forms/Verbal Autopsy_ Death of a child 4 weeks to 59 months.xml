@@ -3,7 +3,7 @@
     <h:title>Verbal Autopsy: Death of a child 4 weeks to 59 months</h:title>
     <model>
       <instance>
-        <data id="build_Verbal-Autopsy-Death-of-a-child-4-weeks-to-59-months_1519165239">
+        <data id="build_Verbal-Autopsy-Death-of-a-child-4-weeks-to-59-months_1520436133">
           <meta>
             <instanceID/>
           </meta>
@@ -2464,14 +2464,14 @@
         </translation>
       </itext>
       <bind nodeset="/data/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
-      <bind nodeset="/data/Date_interview" type="date" required="true()"/>
+      <bind nodeset="/data/Date_interview" type="string" required="true()"/>
       <bind nodeset="/data/Site" type="string" required="true()"/>
-      <bind nodeset="/data/ID_sujet" type="string" required="true()" />
+      <bind nodeset="/data/ID_sujet" type="string" required="true()"/>
       <bind nodeset="/data/Debut" type="time" required="true()"/>
-      <bind nodeset="/data/Section_1.1/Date_naissance" type="date"/>
+      <bind nodeset="/data/Section_1.1/Date_naissance" type="string"/>
       <bind nodeset="/data/Section_1.1/Sexe" type="select1"/>
-      <bind nodeset="/data/Section_1.1/Date_deces" type="date"/>
-      <bind nodeset="/data/Section_1.1/Age_deces" type="int"/>
+      <bind nodeset="/data/Section_1.1/Date_deces" type="string"/>
+      <bind nodeset="/data/Section_1.1/Age_deces" type="int" constraint="(. &gt; '1') and (. &lt; '59')" jr:constraintMsg="Value must be between 1 and 59"/>
       <bind nodeset="/data/Section_1.1/Numero_ID" type="string"/>
       <bind nodeset="/data/Section_1.2/Resultat" type="select1"/>
       <bind nodeset="/data/Section_1.2/Autre_resultat" type="string" relevant="(selected(/data/Section_1.2/Resultat, 'autres_resultat'))"/>
@@ -2489,7 +2489,7 @@
       <bind nodeset="/data/Section_1.2/Resultat_rempli_oui/Section_5/Maladies" type="select1" relevant="(selected(/data/Section_1.2/Resultat_rempli, 'oui'))"/>
       <bind nodeset="/data/Section_1.2/Resultat_rempli_oui/Section_5/Maladies_oui/Mal_coeur" type="select1" relevant="(selected(/data/Section_1.2/Resultat_rempli, 'oui')) and (selected(/data/Section_1.2/Resultat_rempli_oui/Section_5/Maladies, 'suivantes'))"/>
       <bind nodeset="/data/Section_1.2/Resultat_rempli_oui/Section_5/Maladies_oui/Mal_diabete" type="select1" relevant="(selected(/data/Section_1.2/Resultat_rempli, 'oui')) and (selected(/data/Section_1.2/Resultat_rempli_oui/Section_5/Maladies, 'suivantes'))"/>
-      <bind nodeset="/data/Section_1.2/Resultat_rempli_oui/Section_5/Maladies_oui/Mal_asthme" type="select" relevant="(selected(/data/Section_1.2/Resultat_rempli, 'oui')) and (selected(/data/Section_1.2/Resultat_rempli_oui/Section_5/Maladies, 'suivantes'))"/>
+      <bind nodeset="/data/Section_1.2/Resultat_rempli_oui/Section_5/Maladies_oui/Mal_asthme" type="select1" relevant="(selected(/data/Section_1.2/Resultat_rempli, 'oui')) and (selected(/data/Section_1.2/Resultat_rempli_oui/Section_5/Maladies, 'suivantes'))"/>
       <bind nodeset="/data/Section_1.2/Resultat_rempli_oui/Section_5/Maladies_oui/Mal_epilepsie" type="select1" relevant="(selected(/data/Section_1.2/Resultat_rempli, 'oui')) and (selected(/data/Section_1.2/Resultat_rempli_oui/Section_5/Maladies, 'suivantes'))"/>
       <bind nodeset="/data/Section_1.2/Resultat_rempli_oui/Section_5/Maladies_oui/Mal_malnutrition" type="select1" relevant="(selected(/data/Section_1.2/Resultat_rempli, 'oui')) and (selected(/data/Section_1.2/Resultat_rempli_oui/Section_5/Maladies, 'suivantes'))"/>
       <bind nodeset="/data/Section_1.2/Resultat_rempli_oui/Section_5/Maladies_oui/Mal_cancer" type="select1" relevant="(selected(/data/Section_1.2/Resultat_rempli, 'oui')) and (selected(/data/Section_1.2/Resultat_rempli_oui/Section_5/Maladies, 'suivantes'))"/>
@@ -2673,8 +2673,8 @@
       <bind nodeset="/data/Section_1.2/Resultat_rempli_oui/Section_9/Operation_oui/Autre_partie" type="string" relevant="(selected(/data/Section_1.2/Resultat_rempli, 'oui')) and (selected(/data/Section_1.2/Resultat_rempli_oui/Section_9/Operation, 'oui')) and (selected(/data/Section_1.2/Resultat_rempli_oui/Section_9/Operation_oui/Partie_operation, 'autre'))"/>
       <bind nodeset="/data/Section_1.2/Resultat_rempli_oui/Section_10/Certificat" type="select1" relevant="(selected(/data/Section_1.2/Resultat_rempli, 'oui'))"/>
       <bind nodeset="/data/Section_1.2/Resultat_rempli_oui/Section_10/Certificat_oui/Voir_certificat" type="select1" relevant="(selected(/data/Section_1.2/Resultat_rempli, 'oui')) and (selected(/data/Section_1.2/Resultat_rempli_oui/Section_10/Certificat, 'oui'))"/>
-      <bind nodeset="/data/Section_1.2/Resultat_rempli_oui/Section_10/Certificat_oui/Date_certificat" type="date" relevant="(selected(/data/Section_1.2/Resultat_rempli, 'oui')) and (selected(/data/Section_1.2/Resultat_rempli_oui/Section_10/Certificat, 'oui'))"/>
-      <bind nodeset="/data/Section_1.2/Resultat_rempli_oui/Section_10/Certificat_oui/Date_obtention" type="date" relevant="(selected(/data/Section_1.2/Resultat_rempli, 'oui')) and (selected(/data/Section_1.2/Resultat_rempli_oui/Section_10/Certificat, 'oui'))"/>
+      <bind nodeset="/data/Section_1.2/Resultat_rempli_oui/Section_10/Certificat_oui/Date_certificat" type="string" relevant="(selected(/data/Section_1.2/Resultat_rempli, 'oui')) and (selected(/data/Section_1.2/Resultat_rempli_oui/Section_10/Certificat, 'oui'))"/>
+      <bind nodeset="/data/Section_1.2/Resultat_rempli_oui/Section_10/Certificat_oui/Date_obtention" type="string" relevant="(selected(/data/Section_1.2/Resultat_rempli, 'oui')) and (selected(/data/Section_1.2/Resultat_rempli_oui/Section_10/Certificat, 'oui'))"/>
       <bind nodeset="/data/Section_1.2/Resultat_rempli_oui/Section_10/Certificat_oui/Certificat_cause1" type="string" relevant="(selected(/data/Section_1.2/Resultat_rempli, 'oui')) and (selected(/data/Section_1.2/Resultat_rempli_oui/Section_10/Certificat, 'oui'))"/>
       <bind nodeset="/data/Section_1.2/Resultat_rempli_oui/Section_10/Certificat_oui/Certificat_cause2" type="string" relevant="(selected(/data/Section_1.2/Resultat_rempli, 'oui')) and (selected(/data/Section_1.2/Resultat_rempli_oui/Section_10/Certificat, 'oui'))"/>
       <bind nodeset="/data/Section_1.2/Resultat_rempli_oui/Section_10/Certificat_oui/Certificat_cause3" type="string" relevant="(selected(/data/Section_1.2/Resultat_rempli, 'oui')) and (selected(/data/Section_1.2/Resultat_rempli_oui/Section_10/Certificat, 'oui'))"/>
@@ -2697,7 +2697,7 @@
       <bind nodeset="/data/Code_int" type="string" required="true()"/>
       <bind nodeset="/data/Nom_sup" type="string" required="true()"/>
       <bind nodeset="/data/Code_sup" type="string" required="true()"/>
-      <bind nodeset="/data/Date" type="date" required="true()"/>
+      <bind nodeset="/data/Date" type="string" required="true()"/>
     </model>
   </h:head>
   <h:body>
@@ -2949,7 +2949,7 @@
                 <value>ne_sait_pas</value>
               </item>
             </select1>
-            <select ref="/data/Section_1.2/Resultat_rempli_oui/Section_5/Maladies_oui/Mal_asthme">
+            <select1 ref="/data/Section_1.2/Resultat_rempli_oui/Section_5/Maladies_oui/Mal_asthme">
               <label ref="jr:itext('/data/Section_1.2/Resultat_rempli_oui/Section_5/Maladies_oui/Mal_asthme:label')"/>
               <item>
                 <label ref="jr:itext('/data/Section_1.2/Resultat_rempli_oui/Section_5/Maladies_oui/Mal_asthme:option0')"/>
@@ -2963,7 +2963,7 @@
                 <label ref="jr:itext('/data/Section_1.2/Resultat_rempli_oui/Section_5/Maladies_oui/Mal_asthme:option2')"/>
                 <value>ne_sait_pas</value>
               </item>
-            </select>
+            </select1>
             <select1 ref="/data/Section_1.2/Resultat_rempli_oui/Section_5/Maladies_oui/Mal_epilepsie">
               <label ref="jr:itext('/data/Section_1.2/Resultat_rempli_oui/Section_5/Maladies_oui/Mal_epilepsie:label')"/>
               <item>
